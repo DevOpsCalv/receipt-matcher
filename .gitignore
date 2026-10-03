@@ -1,0 +1,21 @@
+# --- Secrets ---
+# The real API key lives here. Never commit it.
+.env
+
+# --- Personal data ---
+# Receipts, bank statements and extracted results all contain personal
+# financial information, so only the empty folder placeholders are committed.
+receipts/*
+!receipts/.gitkeep
+data/*
+!data/.gitkeep
+output/*
+!output/.gitkeep
+
+# --- Python clutter ---
+.venv/
+__pycache__/
+*.pyc
+
+# --- macOS ---
+.DS_Store
