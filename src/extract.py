@@ -116,7 +116,9 @@ def setup_logging() -> None:
         ],
     )
     # Hide the HTTP library's per-request messages so the log stays readable.
-    logging.getLogger("httpx").setLevel(logging.WARNING)
+    # (The Anthropic SDK uses httpx2; older SDK versions used httpx.)
+    for name in ("httpx", "httpx2"):
+        logging.getLogger(name).setLevel(logging.WARNING)
 
 
 def find_receipts() -> list[Path]:
